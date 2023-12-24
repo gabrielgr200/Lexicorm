@@ -4,12 +4,12 @@
     "slug": "lexicorm",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/moebius.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/teste.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#4682B4"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -19,12 +19,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "foregroundImage": "./assets/star.png",
+        "backgroundColor": "#4682B4"
+      },
+      "package": "com.leirbaggr.lexicorm"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "84353673-0143-4e83-935b-2960722eff8f"
+      }
     }
   }
 }
