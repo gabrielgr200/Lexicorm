@@ -40,10 +40,10 @@ export default function MedicineDetailsScreen({ route }) {
               <Text style={styles.info}>{medicineData.Comercial}</Text>
             </View>
 
-            <View style={styles.detailItem}>
+            {/* <View style={styles.detailItem}>
               <Text style={styles.label}>Registro:</Text>
               <Text style={styles.info}>{medicineData.Registro}</Text>
-            </View>
+            </View> */}
 
             <View style={styles.detailItem}>
               <Text style={styles.label}>Colaterais:</Text>
@@ -55,10 +55,10 @@ export default function MedicineDetailsScreen({ route }) {
               <Text style={styles.info}>{medicineData.Decomposto}</Text>
             </View>
 
-            <View style={styles.detailItem}>
+            {/* <View style={styles.detailItem}>
               <Text style={styles.label}>Farmácia:</Text>
               <Text style={styles.info}>{medicineData.Farmacia}</Text>
-            </View>
+            </View> */}
 
             <View style={styles.detailItem}>
               <Text style={styles.label}>Concentracão:</Text>

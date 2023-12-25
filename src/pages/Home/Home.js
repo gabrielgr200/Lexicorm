@@ -178,14 +178,14 @@ export default function Home({ route }) {
               </Text>
             </View>
 
-            <View style={styles.detailItem}>
+            {/* <View style={styles.detailItem}>
               <Text style={styles.detailText}>
                 Registro:
               </Text>
               <Text style={styles.info}>
                 {medicineData.Registro}
               </Text>
-            </View>
+            </View> */}
 
             <View style={styles.detailItem}>
               <Text style={styles.detailText}>
@@ -205,14 +205,15 @@ export default function Home({ route }) {
               </Text>
             </View>
 
-            <View style={styles.detailItem}>
+            {/* <View style={styles.detailItem}>
               <Text style={styles.detailText}>
                 Farmácia:
               </Text>
               <Text style={styles.info}>
                 {medicineData.Farmacia}
               </Text>
-            </View>
+            </View> */}
+
             <View style={styles.detailItem}>
               <Text style={styles.detailText}>
                 Concentracão:

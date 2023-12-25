@@ -13,7 +13,7 @@ export default function Configuration() {
   };
 
   const init = () => {
-    navigation.navigate("Membros");
+    navigation.navigate("Sobre nós");
   };
 
   useEffect(() => {

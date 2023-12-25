@@ -15,12 +15,14 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import TokenExpiredModal from '../../components/TokenModal/TokenExpiredModal ';
 
 export default function Login() {
   const navigation = useNavigation();
   const [image, setImage] = useState(null);
   const [uploadedImage, setUploadedImage] = useState(null);
   const [userData, setUserData] = useState(null);
+  const [isTokenExpiredModalVisible, setTokenExpiredModalVisible] = useState(false);
 
   useEffect(() => {
     if (Platform.OS !== "web") {
@@ -63,7 +65,13 @@ export default function Login() {
             const data = await response.json();
             setUserData(data.user);
           } else {
-            console.error("Failed to fetch user data");
+            if (response.status === 401) {
+              await AsyncStorage.removeItem("userToken");
+              await AsyncStorage.removeItem("userImageUri");
+              setTokenExpiredModalVisible(true);
+            } else {
+              console.error("Failed to fetch user data");
+            }
           }
         }
       } catch (error) {
@@ -198,6 +206,15 @@ export default function Login() {
           <Text style={styles.deleteButtonText}>Excluir Conta</Text>
         </TouchableOpacity>
       </Animatable.View>
+
+
+      <TokenExpiredModal
+        visible={isTokenExpiredModalVisible}
+        onClose={() => {
+          setTokenExpiredModalVisible(false);
+          navigation.navigate('Login');
+        }}
+      />
     </View>
   );
 }
@@ -215,7 +232,6 @@ const styles = StyleSheet.create({
   message: {
     fontSize: 28,
     fontWeight: "bold",
-    top: 10,
   },
   icon: {
     position: "relative",

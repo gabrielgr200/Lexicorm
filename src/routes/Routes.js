@@ -28,6 +28,7 @@ import Welcome from "../pages/welcome/Welcome";
 import Screen from "../pages/Farmácias/Screen/Screen";
 import Sugesplash from "../pages/Sugestao/Sugesplash/Sugesplash";
 import Config from "../pages/Configuration/Config/Animation";
+import TripDetails from "../pages/TripDetails/TripdetailsScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -107,9 +108,9 @@ function Navigation() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-        name="welcome"
-        component={Welcome}
-        options={{headerShown: false}}
+          name="welcome"
+          component={Welcome}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Login"
@@ -132,6 +133,11 @@ function Navigation() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
+          name="TripDetails"
+          component={TripDetails}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="Balance"
           component={Balance}
           options={{ headerShown: false }}
@@ -142,9 +148,9 @@ function Navigation() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Membros"
+          name="Sobre nós"
           component={Membros}
-          options={{ headerShown: false }}
+          options={{ headerTitleAlign: 'center' }}
         />
         <Stack.Screen
           name="Suporte"
