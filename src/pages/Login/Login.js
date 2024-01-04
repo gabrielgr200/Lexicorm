@@ -22,7 +22,7 @@ export default function SignIn() {
       const storedToken = await AsyncStorage.getItem('userToken');
 
       if (storedToken) {
-        navigation.navigate('Main');
+        navigation.replace('Main');
       }
     } catch (error) {
       console.error('Error checking auto login:', error);
@@ -52,7 +52,7 @@ export default function SignIn() {
       if (response.ok) {
         const token = data.token;
         await AsyncStorage.setItem('userToken', token);
-        navigation.navigate('Main');
+        navigation.replace('Main');
       } else {
         openErrorModal(data.mensagem);
       }
