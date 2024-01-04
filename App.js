@@ -4,14 +4,14 @@ import { useEffect } from 'react';
 
 export default function App() {
 
-  // useEffect(() => {
-  //   StatusBar.setTranslucent(true);
-  //   StatusBar.setBackgroundColor('transparent');
-  // }, []);
+  useEffect(() => {
+    StatusBar.setTranslucent(true);
+    StatusBar.setBackgroundColor('#f5f5f5');
+  }, []);
 
   return (
     <>
-    <StatusBar />
+    <StatusBar translucent  backgroundColor={'#f5f5f5'}/>
     <Navigation/>
     </>
   );
