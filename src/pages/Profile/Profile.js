@@ -126,7 +126,7 @@ export default function Login() {
         if (response.ok) {
           await AsyncStorage.removeItem("userToken");
           await AsyncStorage.removeItem("userImageUri");
-          navigation.navigate("Login");
+          navigation.replace("Login");
         } else {
           console.error("Failed to delete user account");
         }
