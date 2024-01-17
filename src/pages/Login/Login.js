@@ -39,7 +39,7 @@ export default function SignIn() {
     }
 
     try {
-      const response = await fetch('https://api-register.onrender.com/login', {
+      const response = await fetch('https://api-register-9fa2157bd094.herokuapp.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ export default function SignIn() {
       console.error('Error during login:', error);
       if (error instanceof TokenExpiredError) {
         openErrorModal('O token expirou. Faça o login novamente.');
-        navigation.navigate('SignIn');
+        navigation.replace('SignIn');
       } else {
         openErrorModal('Erro ao processar a solicitação.');
       }

@@ -30,7 +30,7 @@ export default function Cadastro() {
         return;
       }
 
-      const response = await axios.post('https://api-register.onrender.com/register', {
+      const response = await axios.post('https://api-register-9fa2157bd094.herokuapp.com/register', {
         name: name,
         email: email,
         password: password.trim(),

@@ -54,7 +54,7 @@ export default function Login() {
         const storedToken = await AsyncStorage.getItem("userToken");
 
         if (storedToken) {
-          const response = await fetch("https://api-register.onrender.com/user", {
+          const response = await fetch("https://api-register-9fa2157bd094.herokuapp.com/user", {
             method: "GET",
             headers: {
               Authorization: `Bearer ${storedToken}`,
@@ -116,7 +116,7 @@ export default function Login() {
       const storedToken = await AsyncStorage.getItem("userToken");
 
       if (storedToken) {
-        const response = await fetch("https://api-register.onrender.com/user", {
+        const response = await fetch("https://api-register-9fa2157bd094.herokuapp.com/user", {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${storedToken}`,

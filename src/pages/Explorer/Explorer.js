@@ -22,7 +22,7 @@ const Explorer = () => {
   }, [selectedLetter]);
 
   const fetchRemedios = (letter) => {
-    fetch(`https://api-remedios.onrender.com/remedios/distinct/${letter}`)
+    fetch(`https://api-remedios-d6f50ec60526.herokuapp.com/remedios/distinct/${letter}`)
       .then((response) => response.json())
       .then((data) => setRemedios(data))
       .catch((error) => console.error("Error fetching data:", error));
