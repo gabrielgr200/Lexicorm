@@ -14,7 +14,7 @@ export default function Balance() {
       return;
     }
   
-    const apiUrl = `hhttps://api-remedios-d6f50ec60526.herokuapp.com/search?nome=${searchQuery}`;
+    const apiUrl = `hhttps://api-remedios-d6f50ec60526.herokuapp.com/remedios/search?nome=${searchQuery}`;
   
     axios
       .get(apiUrl)
