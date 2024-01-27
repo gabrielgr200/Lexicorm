@@ -4,6 +4,7 @@ import { colors, shadow, sizes, spacing } from '../../constants/theme';
 import { useNavigation } from '@react-navigation/native';
 import { Foundation } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 const CARD_WIDTH = sizes.width / 3 - (spacing.l + spacing.l / 3);
 const CARD_HEIGHT = 110;
@@ -15,8 +16,9 @@ const TripsList = () => {
   const farma = () => {
     navigation.navigate('Screen')
   }
-  const config = () => {
-    navigation.navigate('Config')
+  
+  const comments = () => {
+    navigation.navigate('Comments')
   }
 
   const sugest = () => {
@@ -60,11 +62,11 @@ const TripsList = () => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.cardContainer} onPress={config}>
+        <TouchableOpacity style={styles.cardContainer} onPress={comments}>
           <View style={[styles.card, shadow.light]}>
             <View style={styles.imageBox}>
-              <Ionicons
-                name="settings"
+              <FontAwesome
+                name="comments"
                 size={40}
                 color="black"
                 style={styles.icon2}
@@ -72,7 +74,7 @@ const TripsList = () => {
             </View>
             <View style={styles.footer}>
               <View style={styles.titleBox}>
-                <Text style={styles.title}>Configuração</Text>
+                <Text style={styles.title}>Comentários</Text>
               </View>
             </View>
           </View>

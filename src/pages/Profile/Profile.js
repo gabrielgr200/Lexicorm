@@ -17,7 +17,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import TokenExpiredModal from '../../components/TokenModal/TokenExpiredModal ';
 
-export default function Login() {
+const Profiles = () => {
   const navigation = useNavigation();
   const [image, setImage] = useState(null);
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -212,7 +212,7 @@ export default function Login() {
         visible={isTokenExpiredModalVisible}
         onClose={() => {
           setTokenExpiredModalVisible(false);
-          navigation.navigate('Login');
+          navigation.replace('Login');
         }}
       />
     </View>
@@ -326,3 +326,5 @@ const styles = StyleSheet.create({
     color: "white",
   },
 });
+
+export default Profiles

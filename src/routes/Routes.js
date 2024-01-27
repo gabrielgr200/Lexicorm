@@ -1,6 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../pages/Home/Home";
-import ProfileScreen from "../pages/Profile/Profile";
 import { Entypo } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
@@ -27,8 +26,10 @@ import Splash from "../pages/Cadastro/Splash/Splash";
 import Welcome from "../pages/welcome/Welcome";
 import Screen from "../pages/Farmácias/Screen/Screen";
 import Sugesplash from "../pages/Sugestao/Sugesplash/Sugesplash";
-import Config from "../pages/Configuration/Config/Animation";
 import TripDetails from "../pages/TripDetails/TripdetailsScreen";
+import Comments from "../pages/Comments/Comments";
+import Profiles from "../pages/Profile/Profile";
+import FeedBack from "../pages/FeedBack/FeedBack";
 
 const Tab = createBottomTabNavigator();
 
@@ -72,7 +73,7 @@ function BottomTabs() {
         name="Search"
         component={Explorer}
         options={{
-          tabBarLabel: "Explorer",
+          tabBarLabel: "Pesquisas",
           headerShown: false,
           tabBarLabelStyle: { color: "black" },
           tabBarIcon: ({ focused }) =>
@@ -85,16 +86,16 @@ function BottomTabs() {
       />
       <Tab.Screen
         name="Profile"
-        component={ProfileScreen}
+        component={Configuration}
         options={{
-          tabBarLabel: "Usuário",
+          tabBarLabel: "Configuração",
           headerShown: false,
           tabBarLabelStyle: { color: "black" },
           tabBarIcon: ({ focused }) =>
             focused ? (
-              <Ionicons name="person" size={24} color="#4682B4" />
+              <Ionicons name="settings" size={24} color="#4682B4" />
             ) : (
-              <Ionicons name="person-outline" size={24} color="#4682B4" />
+              <Ionicons name="settings-outline" size={24} color="#4682B4" />
             ),
         }}
       />
@@ -133,6 +134,11 @@ function Navigation() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
+          name="Profiles"
+          component={Profiles}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="TripDetails"
           component={TripDetails}
           options={{ headerShown: false }}
@@ -141,6 +147,11 @@ function Navigation() {
           name="Balance"
           component={Balance}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="FeedBack"
+          component={FeedBack}
+          options={{ headerTitleAlign: 'center' }}
         />
         <Stack.Screen
           name="MedicineDetailsScreen"
@@ -166,6 +177,11 @@ function Navigation() {
           name="Pesquisas"
           component={Pesquisas}
           options={{ headerTitleAlign: 'center' }}
+        />
+        <Stack.Screen
+          name="Comments"
+          component={Comments}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Remedios"
@@ -200,16 +216,6 @@ function Navigation() {
         <Stack.Screen
           name="Sugesplash"
           component={Sugesplash}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Configuração"
-          component={Configuration}
-          options={{ headerTitleAlign: 'center' }}
-        />
-        <Stack.Screen
-          name="Config"
-          component={Config}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
