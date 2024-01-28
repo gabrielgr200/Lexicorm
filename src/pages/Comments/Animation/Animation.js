@@ -8,7 +8,7 @@ export default function Animation() {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            navigation.replace('Comments');
+            navigation.replace('Comentários');
         }, 3400);
     }, [navigation]);
 

@@ -153,7 +153,7 @@ function Navigation() {
         <Stack.Screen
           name="FeedBack"
           component={FeedBack}
-          options={{ headerTitleAlign: 'center' }}
+          options={{ headerTitleAlign: 'center', headerTintColor: '#fff', headerStyle: { backgroundColor: '#4682B4' } }}
         />
         <Stack.Screen
           name="MedicineDetailsScreen"
@@ -168,42 +168,42 @@ function Navigation() {
         <Stack.Screen
           name="Sobre nós"
           component={Membros}
-          options={{ headerTitleAlign: 'center' }}
+          options={{ headerTitleAlign: 'center', headerTintColor: '#fff', headerStyle: { backgroundColor: '#4682B4' } }}
         />
         <Stack.Screen
           name="Suporte"
           component={Suporte}
-          options={{ headerTitleAlign: 'center' }}
+          options={{ headerTitleAlign: 'center', headerTintColor: '#fff', headerStyle: { backgroundColor: '#4682B4' } }}
         />
         <Stack.Screen
           name="Lista"
           component={Lista}
-          options={{ headerTitleAlign: 'center' }}
+          options={{ headerTitleAlign: 'center', headerTintColor: '#fff', headerStyle: { backgroundColor: '#4682B4' } }}
         />
         <Stack.Screen
           name="Pesquisas"
           component={Pesquisas}
-          options={{ headerTitleAlign: 'center' }}
+          options={{ headerTitleAlign: 'center', headerTintColor: '#fff', headerStyle: { backgroundColor: '#4682B4' } }}
         />
         <Stack.Screen
-          name="Comments"
+          name="Comentários"
           component={Comments}
-          options={{ headerShown: false }}
+          options={{ headerTitleAlign: 'center', headerTintColor: '#fff', headerStyle: { backgroundColor: '#4682B4' } }}
         />
         <Stack.Screen
           name="Remedios"
           component={Remedios}
-          options={{ headerTitleAlign: 'center' }}
+          options={{ headerTitleAlign: 'center', headerTintColor: '#fff', headerStyle: { backgroundColor: '#4682B4' } }}
         />
         <Stack.Screen
           name="Pessoais"
           component={Pessoais}
-          options={{ headerTitleAlign: 'center' }}
+          options={{ headerTitleAlign: 'center', headerTintColor: '#fff', headerStyle: { backgroundColor: '#4682B4' } }}
         />
         <Stack.Screen
           name="Location"
           component={Location}
-          options={{ headerTitleAlign: 'center' }}
+          options={{ headerTitleAlign: 'center', headerTintColor: '#fff', headerStyle: { backgroundColor: '#4682B4' } }}
         />
         <Stack.Screen
           name="Farmácias"
@@ -216,9 +216,9 @@ function Navigation() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Sugestao"
+          name="Sugestão"
           component={Sugestao}
-          options={{ headerShown: false }}
+          options={{ headerTitleAlign: 'center', headerTintColor: '#fff', headerStyle: { backgroundColor: '#4682B4' } }}
         />
         <Stack.Screen
           name="Sugesplash"

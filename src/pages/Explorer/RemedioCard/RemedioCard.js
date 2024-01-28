@@ -115,7 +115,7 @@ export default function SendMedicine({ route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4682B4',
+    backgroundColor: '#8aaee0',
   },
   containerHeader: {
     marginTop: '14%',

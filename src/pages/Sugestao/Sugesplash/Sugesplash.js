@@ -8,7 +8,7 @@ export default function Sugesplash() {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            navigation.replace('Sugestao');
+            navigation.replace('Sugestão');
         }, 2000);
     }, [navigation]);
 

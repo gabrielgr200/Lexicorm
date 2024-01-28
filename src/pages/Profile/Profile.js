@@ -14,6 +14,7 @@ import { Feather } from "@expo/vector-icons";
 import Icon from "react-native-vector-icons/FontAwesome";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { MaterialIcons } from "@expo/vector-icons";
+import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
 import TokenExpiredModal from '../../components/TokenModal/TokenExpiredModal ';
 
@@ -136,13 +137,24 @@ const Profiles = () => {
     }
   };
 
+  const handleBack = () => {
+    navigation.goBack();
+  };
+
   return (
     <View style={styles.container}>
       <Animatable.View
-        animation="fadeInLeft"
+        animation="fadeInRight"
         delay={500}
         style={styles.containerHeader}
       >
+        <TouchableOpacity onPress={handleBack}>
+          <AntDesign
+            name="arrowleft"
+            size={30}
+            color="black"
+          />
+        </TouchableOpacity>
         <Text style={styles.message}>Suas Informações</Text>
       </Animatable.View>
 
@@ -222,12 +234,16 @@ const Profiles = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#4682B4",
+    backgroundColor: "#8aaee0",
   },
   containerHeader: {
     marginTop: "14%",
     marginBottom: "8%",
     paddingStart: "5%",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 20
   },
   message: {
     fontSize: 28,
