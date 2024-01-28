@@ -30,6 +30,8 @@ import TripDetails from "../pages/TripDetails/TripdetailsScreen";
 import Comments from "../pages/Comments/Comments";
 import Profiles from "../pages/Profile/Profile";
 import FeedBack from "../pages/FeedBack/FeedBack";
+import RemedioCard from "../pages/Explorer/RemedioCard/RemedioCard";
+import Animation from "../pages/Comments/Animation/Animation";
 
 const Tab = createBottomTabNavigator();
 
@@ -159,6 +161,11 @@ function Navigation() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
+          name="SendMedicine"
+          component={RemedioCard}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="Sobre nós"
           component={Membros}
           options={{ headerTitleAlign: 'center' }}
@@ -216,6 +223,11 @@ function Navigation() {
         <Stack.Screen
           name="Sugesplash"
           component={Sugesplash}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Animation"
+          component={Animation}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

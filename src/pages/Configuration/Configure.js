@@ -29,8 +29,13 @@ const Configuration = () => {
   return (
     <View style={styles.container}>
       <View style={styles.text}>
-        <Fontisto name="player-settings" size={24} color="black" />
         <Text style={styles.title}>Configuração</Text>
+        <Fontisto
+          name="player-settings"
+          size={24}
+          color="black"
+          style={styles.icon}
+        />
       </View>
       <View style={{ height: 60 }} />
       <TouchableOpacity onPress={profiles}>
@@ -135,6 +140,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 26,
     fontWeight: '600',
+  },
+  icon: {
     paddingHorizontal: width * 0.07
   },
   card: {

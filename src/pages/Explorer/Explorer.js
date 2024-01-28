@@ -1,31 +1,37 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from "react-native";
 import Balance from "../../components/Balance/Balance";
+import { useNavigation } from '@react-navigation/native';
 
-const RemedioCard = ({ remedio }) => (
-  <View style={styles.card}>
+const RemedioCard = ({ remedio, onPress }) => (
+  <TouchableOpacity onPress={onPress} style={styles.card}>
     <Text style={{ fontWeight: "bold", textTransform: "uppercase" }}>
-      {remedio.Referencia}
+      {remedio.referencia}
     </Text>
-  </View>
+  </TouchableOpacity>
 );
 
 const Explorer = () => {
   const [selectedLetter, setSelectedLetter] = useState(null);
   const [remedios, setRemedios] = useState([]);
   const alphabet = "ABCDEFGHIJKLMNOPQRST";
+  const navigation = useNavigation();
 
   useEffect(() => {
-    if (selectedLetter) {
+    if (selectedLetter !== null) {
       fetchRemedios(selectedLetter);
     }
   }, [selectedLetter]);
 
   const fetchRemedios = (letter) => {
-    fetch(`https://api-remedios-d6f50ec60526.herokuapp.com/remedios/distinct/${letter}`)
+    fetch(`https://api-remedios-7e239538cd69.herokuapp.com/remedios/distinct/${letter}`)
       .then((response) => response.json())
       .then((data) => setRemedios(data))
       .catch((error) => console.error("Error fetching data:", error));
+  };
+
+  const navigateToSaveMedicine = (remedio) => {
+    navigation.navigate('SendMedicine', { remedio });
   };
 
   const renderAlphabetItem = (item) => (
@@ -37,6 +43,22 @@ const Explorer = () => {
       <Text>{item}</Text>
     </TouchableOpacity>
   );
+
+  const filterUniqueRemedios = (data) => {
+    const uniqueRemedios = [];
+    const seenRemedios = new Set();
+
+    data.forEach((item) => {
+      const referenciaLowerCase = item.referencia.toLowerCase();
+
+      if (!seenRemedios.has(referenciaLowerCase)) {
+        seenRemedios.add(referenciaLowerCase);
+        uniqueRemedios.push(item);
+      }
+    });
+
+    return uniqueRemedios;
+  };
 
   return (
     <View style={styles.container}>
@@ -51,7 +73,7 @@ const Explorer = () => {
           </View>
         </ScrollView>
 
-        {selectedLetter && (
+        {selectedLetter !== null && (
           <>
             <View style={{ height: 10 }} />
             <Text
@@ -64,8 +86,12 @@ const Explorer = () => {
               Lista de remédios para pesquisar com a letra {selectedLetter} :
             </Text>
             <View style={{ height: 10 }} />
-            {remedios.map((item, index) => (
-              <RemedioCard key={item.Referencia} remedio={item} />
+            {filterUniqueRemedios(remedios).map((item, index) => (
+              <RemedioCard
+                key={item.referencia}
+                remedio={item}
+                onPress={() => navigateToSaveMedicine(item)}
+              />
             ))}
           </>
         )}

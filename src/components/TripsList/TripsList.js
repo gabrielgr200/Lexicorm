@@ -3,7 +3,6 @@ import { Image, View, StyleSheet, TouchableOpacity, Text, ScrollView } from 'rea
 import { colors, shadow, sizes, spacing } from '../../constants/theme';
 import { useNavigation } from '@react-navigation/native';
 import { Foundation } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
 const CARD_WIDTH = sizes.width / 3 - (spacing.l + spacing.l / 3);
@@ -18,7 +17,7 @@ const TripsList = () => {
   }
   
   const comments = () => {
-    navigation.navigate('Comments')
+    navigation.navigate('Animation')
   }
 
   const sugest = () => {

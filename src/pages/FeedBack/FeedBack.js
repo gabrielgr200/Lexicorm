@@ -1,14 +1,72 @@
-import { StyleSheet, Text, View, Dimensions, TextInput, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, Dimensions, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-import React, { useState } from 'react'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
 
 const FeedBack = () => {
   const [text, setText] = useState('');
   const [rating, setRating] = useState(0);
+  const [accessToken, setAccessToken] = useState(null);
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    const getAccessToken = async () => {
+      try {
+        const token = await AsyncStorage.getItem('userToken');
+        setAccessToken(token);
+      } catch (error) {
+        console.error('Erro ao obter token do AsyncStorage:', error);
+      }
+    };
+
+    getAccessToken();
+  }, []); 
 
   const handleStartPress = (selectedRating) => {
     setRating(selectedRating);
+  };
+
+  const handleSendFeedback = async () => {
+    try {
+      if (rating === 0) {
+        Alert.alert('Erro', 'Por favor, selecione uma avaliação antes de enviar.', [{ text: 'OK' }]);
+        return;
+      }
+
+      const response = await axios.post(
+        'https://api-register-9fa2157bd094.herokuapp.com/feedbacks',
+        {
+          feedback: text,
+          stars: rating,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        console.log('Feedback enviado com sucesso:', response.data);
+        setText('');
+        setRating(0);
+        Alert.alert('Sucesso', 'Feedback enviado com sucesso!', [
+          {
+            text: 'OK',
+            onPress: () => navigation.replace('Main'),
+          },
+        ]);
+      } else {
+        console.error('Erro ao enviar feedback. Resposta inesperada do servidor:', response.status);
+        Alert.alert('Erro', `Erro inesperado do servidor. Status: ${response.status}`, [{ text: 'OK' }]);
+      }
+
+    } catch (error) {
+      console.error('Erro ao configurar a requisição:', error.message);
+    }
   };
 
   const renderStars = () => {
@@ -48,26 +106,24 @@ const FeedBack = () => {
             style={styles.textInput}
             multiline
             numberOfLines={14}
-            onChange={setText}
+            onChangeText={setText}
             value={text}
             textAlignVertical='top'
-            placeholder='Escreva o seu comentário aqui &#128521;. (Opcional)'
+            placeholder='Escreva o seu comentário aqui 😊. (Opcional)'
           />
         </View>
 
         <View style={styles.send}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={handleSendFeedback}>
             <Text style={styles.textButton}>Enviar comentário</Text>
           </TouchableOpacity>
         </View>
       </View>
     </View>
-  )
-}
+  );
+};
 
 const { width } = Dimensions.get('window');
-
-export default FeedBack
 
 const styles = StyleSheet.create({
   container: {
@@ -88,8 +144,8 @@ const styles = StyleSheet.create({
     paddingBottom: '6%'
   },
   star: {
-    gap: 4,
     flexDirection: 'row',
+    justifyContent: 'space-between',
     paddingBottom: '20%'
   },
   comments: {
@@ -111,20 +167,20 @@ const styles = StyleSheet.create({
   send: {
     justifyContent: 'center',
     alignItems: 'center',
-    top: width * 0.496,
+    top: width * 0.1,
   },
   button: {
     alignItems: 'center',
     width: '100%',
     padding: 10,
+    borderRadius: 16,
     backgroundColor: '#4682B4',
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
   },
   textButton: {
     fontSize: 18,
-    fontWeight: '500'
+    fontWeight: '500',
+    color: '#fff'
   }
 });
 
-{/* <AntDesign name="star" size={24} color="black" /> */ }
+export default FeedBack;

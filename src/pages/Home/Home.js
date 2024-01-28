@@ -1,13 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import {
-  View,
-  StyleSheet,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-  Alert,
-  Image,
-} from "react-native";
+import React, { useEffect, useState, useRef } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Image } from 'react-native';
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Animatable from "react-native-animatable";
@@ -87,8 +79,6 @@ export default function Home({ route }) {
       ]
     );
   };
-
-
 
   return (
     <ScrollView style={styles.container}>
@@ -178,14 +168,14 @@ export default function Home({ route }) {
               </Text>
             </View>
 
-            {/* <View style={styles.detailItem}>
+            <View style={styles.detailItem}>
               <Text style={styles.detailText}>
                 Registro:
               </Text>
               <Text style={styles.info}>
                 {medicineData.Registro}
               </Text>
-            </View> */}
+            </View>
 
             <View style={styles.detailItem}>
               <Text style={styles.detailText}>
@@ -205,14 +195,14 @@ export default function Home({ route }) {
               </Text>
             </View>
 
-            {/* <View style={styles.detailItem}>
+            <View style={styles.detailItem}>
               <Text style={styles.detailText}>
                 Farmácia:
               </Text>
               <Text style={styles.info}>
                 {medicineData.Farmacia}
               </Text>
-            </View> */}
+            </View>
 
             <View style={styles.detailItem}>
               <Text style={styles.detailText}>
@@ -311,5 +301,5 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: 8,
     fontSize: 18
-  }
+  },
 });
