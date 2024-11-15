@@ -115,7 +115,7 @@ function Navigation() {
           component={Welcome}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Login"
           component={SignIn}
           options={{ headerShown: false }}
@@ -129,7 +129,7 @@ function Navigation() {
           name="Splash"
           component={Splash}
           options={{ headerShown: false }}
-        />
+        /> */}
         <Stack.Screen
           name="Main"
           component={BottomTabs}

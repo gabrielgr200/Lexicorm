@@ -8,7 +8,7 @@ export default function Welcome() {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            navigation.replace('Login');
+            navigation.replace('Main');
         }, 3000);
 
         return () => clearTimeout(timer);
