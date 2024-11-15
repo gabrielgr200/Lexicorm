@@ -22,7 +22,7 @@
         "foregroundImage": "./assets/moebius.png",
         "backgroundColor": "#4682B4"
       },
-      "package": "com.leirbaggr.lexicorm"
+      "package": "com.leirbaggr.lexicormApk"
     },
     "web": {
       "favicon": "./assets/favicon.png"
